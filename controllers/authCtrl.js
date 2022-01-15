@@ -51,15 +51,19 @@ const authCtrl = {
         try {
             const {username, password} = req.body;
             
-            const userDetail = await Users.findUser(username);
-
+            const user = await Users.findUser(username);
+            const userDetail = user[0][0];
+            if(userDetail.length === 0)
+                return res.status(400).json({msg:'No account found with this username'});
             
-            if(userDetail[0] == 0)
-                return res.status(400).json({msg:'Please register first'})
+            const isPass = await bcrypt.compare(password, userDetail.password);
+            if(!isPass) return res.status(400).json({msg:'Wrong email password'})
             
-            // const isPass = await bcrypt.compare(password, userDetail)
             res.json({
-                  user
+                    user:{
+                        ...userDetail,
+                        password:''
+                    }
                 }
             )
 
