@@ -18,6 +18,7 @@ app.use(cors(corsOption));
 
 //Routes
 app.use('/api', require('./routes/authRoute'));
+app.use('/api', require('./routes/userRoute'));
 
 
 //connection checking

@@ -1,4 +1,3 @@
-const pool = require('../database/connection');
 const bcrypt = require('bcrypt');
 const Users = require('../models/userModel');
 
@@ -60,6 +59,7 @@ const authCtrl = {
             if(!isPass) return res.status(400).json({msg:'Wrong email password'})
             
             res.json({
+                    msg:'Login succesfull!',
                     user:{
                         ...userDetail,
                         password:''

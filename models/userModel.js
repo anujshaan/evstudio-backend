@@ -8,19 +8,26 @@ module.exports = class Users {
     }
 
 
-    static findEmail(email){
+    static findEmail = (email) => {
         return db.execute(
             'SELECT * FROM users WHERE email=?',[email]
         );
     }
 
-    static findUser(username){
+    static findUser = (username) => {
         return db.execute(
             'SELECT * FROM users WHERE username=?',[username]
         );
     }
 
-    static save(user){
+    //Assingment E query to find user by companyId
+    static findQuery = (companyId) => {
+        return db.execute(
+            'SELECT * FROM user WHERE companyId=?',[companyId]
+        );
+    }
+
+    static save = (user) => {
         return db.execute(
             'INSERT INTO users(username, email, password) VALUES(?,?,?)',
             [user.username, user.email, user.password]
