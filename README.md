@@ -5,4 +5,4 @@
 <br/>
 <h2>Login page</h2>
 
-![alt text](https://github.com/anujshaan/evstudio-backend/main/Assets/loginPostman.png?raw=true)
+![alt text](https://github.com/anujshaan/evstudio-backend/blob/main/Assets/loginPostman.png?raw=true)
